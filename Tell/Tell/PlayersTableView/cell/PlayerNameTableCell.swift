@@ -13,11 +13,9 @@ class PlayerNameTableCell: UITableViewCell {
     /*** OUTLETS ***/
     @IBOutlet weak var nameLabel: UILabel!
     
-    
     func addTextLabel(text: String){
         nameLabel.text = text
     }
-    
     
 }
 

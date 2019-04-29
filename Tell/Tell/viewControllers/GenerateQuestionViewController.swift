@@ -16,20 +16,44 @@ class GenerateQuestionViewController: UIViewController {
     var playerList: [Player]?
     
     
+    
     /* OUTLETS */
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var pastQBtn: UIButton!
     @IBOutlet weak var futureBtn: UIButton!
     @IBOutlet weak var nextPlayerBtn: UIButton!
     @IBOutlet weak var playerNameLabel: UILabel!
+    @IBOutlet weak var questionContainer: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setSizeOfButtons()
         setUp()
+        
+        // Show first plyer
+        if let players = playerList{
+            let player = selectRandomPlayer(listOf: players)
+            playerNameLabel.text = player!
+        }
     }
     
     /*** CUSTOM FUNCTIONS ***/
+    
+    // To handle portrait/ Landscap orientation
+    func setSizeOfButtons(){
+        pastQBtn.translatesAutoresizingMaskIntoConstraints = false
+        futureBtn.translatesAutoresizingMaskIntoConstraints = false
+        
+        pastQBtn.leadingAnchor.constraint(equalTo: questionContainer.leadingAnchor, constant: 0).isActive = true
+        pastQBtn.topAnchor.constraint(equalTo: questionContainer.topAnchor, constant: 0).isActive = true
+        pastQBtn.bottomAnchor.constraint(equalTo: questionContainer.bottomAnchor, constant: 0).isActive = true
+        pastQBtn.widthAnchor.constraint(equalTo: questionContainer.widthAnchor, multiplier: 0.5).isActive = true
+        
+        futureBtn.trailingAnchor.constraint(equalTo: questionContainer.trailingAnchor, constant: 0).isActive = true
+        futureBtn.topAnchor.constraint(equalTo: questionContainer.topAnchor, constant: 0).isActive = true
+        futureBtn.bottomAnchor.constraint(equalTo: questionContainer.bottomAnchor, constant: 0).isActive = true
+        futureBtn.widthAnchor.constraint(equalTo: questionContainer.widthAnchor, multiplier: 0.5).isActive = true
+    }
     
     func setUp(){
         self.questionLabel.textColor = UIColor.gray
@@ -57,7 +81,6 @@ class GenerateQuestionViewController: UIViewController {
         let randomInt = Int.random(in: 0 ..< numElem)
         return array[randomInt]
     }
-    
     
     func changeButtonColor(buttonSelected: String){
         
@@ -133,16 +156,7 @@ class GenerateQuestionViewController: UIViewController {
         let question = self.generateRandomElement(array: self.TallDataObj.futureQ!)
         self.questionLabel.text = question
         changeButtonColor(buttonSelected: "future")
-        
-        // Select random player
-        if let listOfPlayers = self.playerList{
-            if let selectedPlayer = selectRandomPlayer(listOf: listOfPlayers){
-                self.playerNameLabel.text = selectedPlayer
-                self.playerNameLabel.textColor = UIColor.black
-                //self.selectPlayerBtn.isEnabled = false
-                self.nextPlayerBtn.isEnabled = true
-            }
-        }
+        self.nextPlayerBtn.isEnabled = true
     }
     
     @IBAction func showPastQuestion(_ sender: Any) {
@@ -150,16 +164,7 @@ class GenerateQuestionViewController: UIViewController {
         let question = self.generateRandomElement(array: self.TallDataObj.pastQ!)
         self.questionLabel.text = question
         changeButtonColor(buttonSelected: "past")
-        
-        // Select random player
-        if let listOfPlayers = self.playerList{
-            if let selectedPlayer = selectRandomPlayer(listOf: listOfPlayers){
-                self.playerNameLabel.text = selectedPlayer
-                self.playerNameLabel.textColor = UIColor.black
-                //self.selectPlayerBtn.isEnabled = false
-                self.nextPlayerBtn.isEnabled = true
-            }
-        }
+        self.nextPlayerBtn.isEnabled = true
     }
     
     // 'Next Player'
@@ -174,7 +179,6 @@ class GenerateQuestionViewController: UIViewController {
                 
                 questionLabel.text = "Game Over"
                 questionLabel.textColor = UIColor.orange
-                
                 
                 // Show UIBarButtonItem 'Play Again'
                 let playAgainBtn = UIBarButtonItem.init(title: "Play Again", style: .plain, target: self, action: #selector(playAgain))
@@ -191,20 +195,15 @@ class GenerateQuestionViewController: UIViewController {
     
     
     @objc func playAgain(){
-        
         resetPlay()
         
-        // Set all Player.hasPlayerd = false
         if let listOfPlayers = self.playerList{
             for player in listOfPlayers{
                 player.hasPlayed = false
             }
             self.playerList = listOfPlayers
         }
-        if let updatedList = self.playerList{
-            for player in updatedList{
-            }
-        }
+        showNextPlayer()
     }
     
     func resetPlay(){
@@ -223,7 +222,19 @@ class GenerateQuestionViewController: UIViewController {
         self.pastQBtn.isEnabled = true
         self.futureBtn.isEnabled = true
         self.nextPlayerBtn.isEnabled = false
+        
+        // Select next random player
+        showNextPlayer()
     }
+    
+    func showNextPlayer(){
+        if let listOfPlayers = self.playerList{
+            if let selectedPlayer = selectRandomPlayer(listOf: listOfPlayers){
+                self.playerNameLabel.text = selectedPlayer
+            }
+        }
+    }
+    
 }
 
 

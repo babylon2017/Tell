@@ -21,10 +21,8 @@ class StartViewController: UIViewController {
     
     /*** ACTIONS ***/
     @IBAction func startPlaying(_ sender: Any) {
-        
         let AddPlayerVC = self.storyboard?.instantiateViewController(withIdentifier: "addPlayerVC") as! AddPlayerViewController
         self.navigationController?.pushViewController(AddPlayerVC, animated: true)
-         
     }
     
     

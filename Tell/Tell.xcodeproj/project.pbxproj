@@ -11,6 +11,7 @@
 		413BE33B226493F7003271A3 /* PlayersTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413BE33A226493F7003271A3 /* PlayersTableView.swift */; };
 		413BE33D2265C28F003271A3 /* PlayerNameTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413BE33C2265C28F003271A3 /* PlayerNameTableCell.swift */; };
 		417898782269D22700E64F10 /* ButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417898772269D22700E64F10 /* ButtonExtensions.swift */; };
+		4190123B22774B9B00932D5E /* tableStruc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4190123A22774B9B00932D5E /* tableStruc.swift */; };
 		41D2C189225892A300B7BD01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D2C188225892A300B7BD01 /* AppDelegate.swift */; };
 		41D2C18E225892A300B7BD01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41D2C18C225892A300B7BD01 /* Main.storyboard */; };
 		41D2C190225892B300B7BD01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41D2C18F225892B300B7BD01 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		413BE33A226493F7003271A3 /* PlayersTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersTableView.swift; sourceTree = "<group>"; };
 		413BE33C2265C28F003271A3 /* PlayerNameTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNameTableCell.swift; sourceTree = "<group>"; };
 		417898772269D22700E64F10 /* ButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtensions.swift; sourceTree = "<group>"; };
+		4190123A22774B9B00932D5E /* tableStruc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableStruc.swift; sourceTree = "<group>"; };
 		41D2C185225892A300B7BD01 /* Tell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41D2C188225892A300B7BD01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41D2C18D225892A300B7BD01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			children = (
 				41D2C19B2258939300B7BD01 /* TellData.swift */,
 				413BE33622648E1E003271A3 /* Player.swift */,
+				4190123A22774B9B00932D5E /* tableStruc.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				41D2C1A32258AAB100B7BD01 /* AddPlayerViewController.swift in Sources */,
 				41D2C19F22589BAC00B7BD01 /* GenerateQuestionViewController.swift in Sources */,
 				41D2C189225892A300B7BD01 /* AppDelegate.swift in Sources */,
+				4190123B22774B9B00932D5E /* tableStruc.swift in Sources */,
 				417898782269D22700E64F10 /* ButtonExtensions.swift in Sources */,
 				413BE33B226493F7003271A3 /* PlayersTableView.swift in Sources */,
 				413BE33722648E1E003271A3 /* Player.swift in Sources */,
